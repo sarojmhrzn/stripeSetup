@@ -52,9 +52,16 @@ app.post('/purchase', function (req, res) {
             currency: 'usd'
         }).then(function() {
             res.json({message: 'successfully purchased'})
+            // const invoice = stripe.invoices.create({
+            //     customer: 'john@john.com'
+            // }).then(function (data) {
+            //     console.log(data, "datatatatata")
+            // }).catch(function (err) {
+            //     console.log(err, 'errrrrrr')
+            // })
         }).catch(function () {
             console.log('charge failed')
-            res.status(500).end()
+            res.status(500).end();
         })
     })
 })
